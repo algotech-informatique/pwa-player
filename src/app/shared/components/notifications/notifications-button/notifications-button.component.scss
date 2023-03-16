@@ -1,0 +1,16 @@
+@import '../../../../../styles/mixins';
+
+:host {
+    --HEIGHT: 50px;
+}
+
+.top-bar-button {
+    @include top-bar-button();
+}
+
+.notifications-badge {
+    @include badge();
+    position: absolute;
+    top: 20px;
+    left: 28px;
+}

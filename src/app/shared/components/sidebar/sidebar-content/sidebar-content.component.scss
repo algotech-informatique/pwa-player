@@ -1,0 +1,44 @@
+@import "../../../../../styles/fonts";
+@import "../../../../../styles/mixins";
+
+.actions, .custom-apps {
+    border-top: 1px solid var(--ALGOTECH-BACKGROUND-BORDER);
+}
+
+.selected {
+    @include fontTitle();
+}
+
+.item {
+    position: relative;
+    display:  flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 20px 0px 20px 15px;
+
+    .icon {
+        font-size: 22px;
+        margin-right: 32px;
+        color: var(--ALGOTECH-PRIMARY);
+        width: 24px;
+        text-align: center;
+    }
+
+    .text {
+        font-size: 16px;
+        color: var(--ALGOTECH-SECONDARY);
+        margin-right: 32px;
+        @include text-ellipsis();
+
+        &.selected {
+            font-weight: bold;
+        }
+    }
+
+    .notifications-badge {
+        @include badge();
+        position: absolute;
+        top: 0px;
+        right: 15px;
+    }
+}

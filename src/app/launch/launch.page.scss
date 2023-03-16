@@ -1,0 +1,50 @@
+.install-panel {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--ion-color-primary-contrast);
+    height: 100%;
+    width: 100%;
+    bottom: 0px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    animation: 0.3s 0 slideUp ease-out;
+
+    .text {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+
+        ion-text {
+            text-align: center;
+
+        }
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 10px 20px;
+        flex-direction: column;
+
+        .remember {
+            color: var(--ion-color-primary);
+            margin-left: 10px;
+        }
+    }
+
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(+50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

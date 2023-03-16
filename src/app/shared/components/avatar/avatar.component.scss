@@ -1,0 +1,19 @@
+
+:host {
+    --SIZE: 40px;
+}
+.avatar {
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11pt;
+    background-color: var(--COLOR-CURRENT-USER);
+    color: white;
+    min-width: var(--SIZE);
+    width: var(--SIZE);
+    height: var(--SIZE);
+}

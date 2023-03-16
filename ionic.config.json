@@ -1,0 +1,7 @@
+{
+  "name": "pwa-player",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

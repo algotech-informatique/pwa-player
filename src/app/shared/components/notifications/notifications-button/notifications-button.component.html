@@ -1,0 +1,9 @@
+<div [class]="'top-bar-button ' + classDisplay"
+    (click)="onClickNotification()">
+    
+    <i  id="notification-button" class="fa-solid fa-bell icon" ></i>
+    <div class="notifications-badge" *ngIf="unread > 0">
+        {{ unreadMessage }}
+    </div>
+
+</div>

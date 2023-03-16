@@ -1,0 +1,35 @@
+<div class="install-panel" *ngIf="display">
+    <div class="text">
+        <ion-text color="primary" *ngIf="pwaService.browserLaunched && (pwaService.appInstalled || pwaService.installedFromPrompt)">
+            <i class="fa-solid fa-mobile-screen" style="font-size: 50px;"></i>
+            <p>{{'PWA_INSTALLATION.APP_ALREADY_INSTALLED'|translate}}</p>
+        </ion-text>
+        <ion-text color="primary" *ngIf="pwaService.browserLaunched && !pwaService.appInstalled && !pwaService.installedFromPrompt">
+            <p>{{'PWA_INSTALLATION.INSTALLATION_AVAILABLE'|translate}}</p>
+        </ion-text>
+    </div>
+
+    <div class="buttons" *ngIf="!pwaService.installedFromPrompt">
+        <ion-button fill="outline" (click)="continueWebsite()">
+            {{'PWA_INSTALLATION.CONTINUE_WEB'|translate}}
+        </ion-button>
+
+        <ion-button *ngIf="pwaService.browserLaunched && !pwaService.appInstalled && !pwaService.installedFromPrompt" (click)="showInstallBanner()">
+            {{'PWA_INSTALLATION.INSTALL_APP'|translate}}
+        </ion-button>
+
+        <ion-button [disabled]="openButtonDisabled" *ngIf="pwaService.browserLaunched && pwaService.appInstalled" (click)="openPWA()">
+            <p *ngIf="!openButtonDisabled">
+                {{'PWA_INSTALLATION.OPEN_APP'|translate}}
+            </p>
+            <ion-spinner *ngIf="openButtonDisabled" name="circular"></ion-spinner>
+        </ion-button>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>
+            <ion-checkbox color="primary" slot="start" [(ngModel)]="pwaLaunch"></ion-checkbox>
+            <span class="remember">{{'PWA_INSTALLATION.REMEMBER_CHOICE'|translate}}</span>
+        </div>
+    </div>
+
+</div>

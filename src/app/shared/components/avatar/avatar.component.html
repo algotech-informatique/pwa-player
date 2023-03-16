@@ -1,0 +1,7 @@
+
+<div class="avatar" id="avatar" *ngIf="name && color"
+    [ngStyle]="{
+        'background-color': color
+     }">
+    {{  name | reduceText }}
+</div>

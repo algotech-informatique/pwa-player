@@ -1,0 +1,16 @@
+<at-theme-englober>
+    <ion-app *ngIf="!dataService.mobile">
+        <ion-router-outlet></ion-router-outlet>
+    </ion-app>
+
+    <ion-app *ngIf="dataService.mobile">
+        <ion-split-pane contentId="menu-content" when="(min-width: 3000px)">
+            <ion-menu type="overlay" menuId="menu-content" contentId="menu-content" swipeGesture="false">
+
+                <app-sidebar-header></app-sidebar-header>
+                <app-sidebar-content></app-sidebar-content>
+            </ion-menu>
+            <ion-router-outlet id="menu-content"></ion-router-outlet>
+        </ion-split-pane>
+    </ion-app>
+</at-theme-englober>

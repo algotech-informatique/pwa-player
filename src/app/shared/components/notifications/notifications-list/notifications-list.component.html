@@ -1,0 +1,26 @@
+<div [ngClass]="{'pop-up-notifications': !mobile}">
+    <div class="content" (scroll)="doInfiniteWeb($event)">
+
+        <at-notifications-card *ngFor="let notification of notifications" [notification]="notification" [login]="login"
+            (continue)="onContinue(notification)" (selected)="onSelectNotification(notification)">
+        </at-notifications-card>
+
+        <ion-infinite-scroll *ngIf="mobile" (ionInfinite)="doInfiniteMobile($event)">
+            <ion-infinite-scroll-content class="infinite-spinner" loadingSpinner="dots">
+            </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </div>
+
+    <div *ngIf="!mobile" class="message">
+        <div class="segment-container">
+            <button class="segment" [ngClass]="{'selected': state === 'all'}"
+                (click)="onChangeState('all')">{{'NOTIFICATIONS.ALL' | translate | uppercase}}</button>
+
+            <button class="segment" [ngClass]="{'selected': state === 'unread'}"
+                (click)="onChangeState('unread')">{{'NOTIFICATIONS.UNREAD' | translate | uppercase}}</button>
+        </div>
+        <label>
+            {{unreadFullMessage}}
+        </label>
+    </div>
+</div>

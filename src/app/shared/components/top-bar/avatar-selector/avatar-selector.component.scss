@@ -1,0 +1,36 @@
+@import '../../../../../styles/mixins';
+@import "../../../../../styles/fonts";
+
+.pop-up-users {
+    width: max-content;
+    position: absolute;
+    top: 50px;
+    z-index: 1;
+    right: 150px;
+    height: 200px;
+    border-radius: 3px;
+    background: var(--ALGOTECH-BACKGROUND-CONTENT);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 -1px 8px 0px rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 0px 0px 5px 5px;
+    padding: 10px;
+
+    .item {
+        display: flex;
+        flex-direction: row;
+        margin: 10px;
+        justify-content: flex-start;
+        align-items: center;
+
+        .avatar {
+            margin-right: 20px;
+            --SIZE: 32px;
+        }
+
+        .label {
+            @include fontTitle();
+            color: var(--ALGOTECH-PRIMARY);
+        }
+    }
+  
+}
+

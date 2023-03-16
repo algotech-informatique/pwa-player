@@ -1,0 +1,9 @@
+<at-top-bar [ngStyle]="hiddenBar && { 'position': 'absolute', 'right': '0', 'width': '100%' }"
+    [currentApplication]="currentApp" [authorizedApplications]="authorizedApplications" [wsUsers]="wsUsers"
+    [wsCurrentUser]="wsCurrentUser" [displayBoutonApps]="displayBoutonApps" [displayNotifications]="true"
+    [hiddenBar]="hiddenBar" (openNotification)="openNotification($event)">
+</at-top-bar>
+
+<ion-content>
+    <ion-router-outlet id="menu-content"></ion-router-outlet>
+</ion-content>

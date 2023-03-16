@@ -1,0 +1,83 @@
+@import 'fonts';
+@import 'mixins';
+@import 'popovers';
+@import 'variables';
+
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+/* You can add global styles to this file, and also import other style files */
+@import '../assets/theme/font';
+@import '../assets/theme/mixins';
+
+@import '../assets/fontawesome/scss/fontawesome.scss';
+@import '../assets/fontawesome/scss/solid.scss';
+@import '../assets/fontawesome/scss/brands.scss';
+@import '../assets/fontawesome/scss/regular.scss';
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0; 
+    padding: 0;
+
+    height: 100%;
+}
+
+#splashscreen-vision {
+    height: 100%;
+    position: relative;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .loadingAnimation {
+        width: 100px;
+        height: 100px;
+        background-color: #455d7a;
+        border-radius: 100%;
+        -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+        animation: sk-scaleout 1.0s infinite ease-in-out;
+    }
+
+    @-webkit-keyframes sk-scaleout {
+        0% {
+            -webkit-transform: scale(0);
+        }
+    
+        100% {
+            -webkit-transform: scale(1.0);
+            opacity: 0;
+        }
+    }
+    
+    @keyframes sk-scaleout {
+        0% {
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+    
+        100% {
+            -webkit-transform: scale(1.0);
+            transform: scale(1.0);
+            opacity: 0;
+        }
+    }
+}

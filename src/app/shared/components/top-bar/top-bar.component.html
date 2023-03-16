@@ -1,0 +1,82 @@
+<ion-header *ngIf="!hiddenBar">
+    <div class="at-top-bar" [ngClass]="{'mobile': dataService.mobile}">
+    
+        <div class="header" *ngIf="dataService.mobile">
+            <div class="left-side">
+                <div class="menu"
+                    (click)="openMenu()">
+                    <i class="fa-solid fa-bars icon" id="boutonApps"></i>
+                    <i *ngIf="notificationsService.unread > 0 && !notificationsPage" class="fa-solid fa-circle" id="notificationsAlert"></i>
+                </div>
+                <div class="title">
+                    <span>{{title}}</span>
+                    <div *ngIf="notificationsPage && notificationsService.unread > 0 " class="notifications-badge">
+                        {{notificationsService.unreadMessage}}
+                    </div>
+                </div>
+            </div>
+            <ng-content></ng-content>
+        </div>
+    
+        <div class="header" *ngIf="!dataService.mobile">
+            <div class="logo-container">
+                <div class="logo" (click)="onOpenDefault()">
+                    <img class="logo" src="assets/images/vision-logo-bold.png" alt="Vision">
+                </div>
+            </div>
+            <div class="buttons">
+    
+                <div class="avatars">
+                    <at-avatar class="avatar" [wsUser]="wsUser"
+                        *ngFor="let wsUser of wsUsers | slice:0:5;">
+                    </at-avatar>
+    
+                    <div id="boutonOnline" *ngIf="wsUsers.length > 5" class="total-members"
+                        (click)="openOnlineMenu()">
+                        +{{ (wsUsers.length) - 5 }}
+                    </div>
+                </div>
+    
+                <at-notifications 
+                    *ngIf="displayNotifications"
+                    [mobile]="dataService.mobile"
+                    [classDisplay]="'transparentDisplay'"
+                    (openNotification)="onOpenNotification($event)"
+                >
+                </at-notifications>
+    
+                <div *ngIf="displayBoutonApps"
+                    class="top-bar-btn"
+                    (click)="openAppMenu()"
+                >
+                    <i class="fa-solid fa-th icon" id="boutonApps"></i>
+                </div>
+    
+                <at-app-selector id="menuApps" [currentApp]="currentApplication"
+                    [applications]="authorizedApplications" *ngIf="menuAppsOpen === true"
+                    (clickOutside)="onClickedOutside($event)" (openApp)="selectApp()">
+                </at-app-selector>
+    
+                <at-avatar-selector *ngIf="menuOnlineOpen" [users]="wsUsers"
+                    (clickOutside)="onClickedOutside($event)">
+                </at-avatar-selector>
+    
+                <at-avatar id="boutonProfile"
+                    class="top-bar-btn"
+                    [wsUser]="wsCurrentUser"
+                    (click)="openProfilMenu()"
+                >
+                </at-avatar>
+
+                <at-profile-selector 
+                    *ngIf="menuProfileOpen"
+                    [currentUser]="wsCurrentUser"
+                    (close)="ongletClick($event)"
+                    (clickOutside)="onClickedOutside($event)"
+                >
+                </at-profile-selector>
+    
+            </div>
+        </div>
+    </div>
+</ion-header>

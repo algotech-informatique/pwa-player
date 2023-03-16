@@ -1,0 +1,115 @@
+@import '../../../../styles/mixins';
+
+
+.at-top-bar {
+    --TOP-BAR-HEIGHT: 50px;
+
+    &.mobile {
+        --TOP-BAR-HEIGHT: 45px;
+    }
+
+    .header {
+        box-shadow: 0 2px 2px -2px var(--ALGOTECH-PRIMARY);
+    }
+
+    #boutonProfile {
+        --SIZE: 36px;
+        margin: 5px;
+    }
+
+    user-select: none;
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        background-color: var(--ALGOTECH-PRIMARY);
+        color: var(--ALGOTECH-PRIMARY-HOVER);
+        height: var(--TOP-BAR-HEIGHT);
+
+        .left-side {
+            display: flex;
+            width: calc(100% - var(--TOP-BAR-HEIGHT));
+        }
+
+        .title {
+            display: flex;
+            align-items: center;
+            width: calc(100% - 65px);
+            height: 100%;
+            font-weight: bold;
+            margin-left: 25px;
+
+            span {
+                @include text-ellipsis();
+            }
+        }
+
+        .notifications-badge {
+            @include badge();
+            margin-left: 7px;
+        }
+
+        .logo-container {
+
+            .logo {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 0;
+                height: 100%;
+
+                .logo {
+                    height: calc(var(--TOP-BAR-HEIGHT) - 20px);
+                    margin: 0 30px 0 15px;
+                }
+
+                .logo:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            margin: 0px 10px 0px 0px;
+            align-items: center;
+            justify-content: center;
+
+            .avatars {
+                display: flex;
+                flex-direction: row;
+
+                .avatar {
+                    --SIZE: 32px;
+                    margin: 1px;
+                }
+
+                .total-members {
+                    margin-right: 8px;
+                    margin-left: 4px;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        #notificationsAlert {
+            color: var(--ALGOTECH-DANGER);
+            position: absolute;
+            font-size: 12px;
+            left: 25px;
+            top: 10px;
+        }
+    }
+}
+
+.logout,
+.top-bar-btn {
+    @include top-bar-button();
+}
+
+.menu {
+    @include top-bar-button(15px);
+}

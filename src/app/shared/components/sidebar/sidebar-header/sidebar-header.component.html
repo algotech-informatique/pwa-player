@@ -1,0 +1,18 @@
+<div class="header-container" *ngIf="wsCurrentUser">
+    <at-avatar
+        class="avatar"
+        bgColor="#495199"
+        [wsUser]="wsCurrentUser">
+    </at-avatar>
+
+    <div class="info-container">
+        <div class="firstname">
+            {{ wsCurrentUser.firstName }}
+        </div>
+        <div class="lastname">
+            {{ wsCurrentUser.lastName }}
+        </div>
+    </div>
+
+    <i class="fa-solid fa-circle" [style.color]="networkService.displayColor"></i>
+</div>

@@ -1,0 +1,19 @@
+at-theme-englober {
+    height: 100%;
+    width: 100%;
+}
+
+.filter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 40px;
+    .icon {
+        color: #FFF;
+    }
+}
+
+ion-content {
+    --background: var(--ALGOTECH-BACKGROUND-CONTENT);
+}

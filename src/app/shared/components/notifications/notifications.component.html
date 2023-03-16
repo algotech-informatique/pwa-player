@@ -1,0 +1,27 @@
+<div class="notifications">
+
+    <at-notifications-button
+        *ngIf="classDisplay !== undefined"
+        id="notification-button"
+        [classDisplay]="classDisplay"
+        [unread]="notificationsService.unread"
+        [unreadMessage]="notificationsService.unreadMessage"
+        (clickNotification)="onClickNotification()"
+    >
+    </at-notifications-button>
+
+    <at-notifications-list 
+        *ngIf="notificationsOpen || mobile"
+        [mobile]="mobile"
+        [notifications]="notifications || notificationsService.notifications"
+        [lang]="lang"
+        [unreadFullMessage]="notificationsService.unreadFullMessage"
+        [state]="state"
+        (clickOutside)="onClickedOutside($event)"
+        (selectNotification)="onSelectNotification($event)"
+        (openNotification)="onOpenNotification($event)"
+        (endNotification)="onEndNotification()"
+        (stateClick)="onStateClick($event)"
+    ></at-notifications-list>
+
+</div>

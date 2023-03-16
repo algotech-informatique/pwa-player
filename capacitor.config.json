@@ -1,0 +1,6 @@
+{
+  "appId": "mobile.algotech.vision",
+  "appName": "Vision",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

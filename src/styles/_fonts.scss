@@ -1,0 +1,21 @@
+$color-struct: #444444;
+$color-action: #27ae60;
+$color-base: white;
+
+@mixin fontTitle() {
+  font-family: Roboto;
+  font-weight: 700;
+  color: $color-struct;
+}
+
+@mixin fontSubTitle() {
+  font-family: Roboto;
+  font-weight: 500;
+  color: $color-struct;
+}
+
+@mixin fontNormal() {
+  font-family: Roboto;
+  font-weight: 400;
+  color: $color-struct;
+}

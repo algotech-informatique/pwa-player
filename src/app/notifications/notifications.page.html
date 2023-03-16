@@ -1,0 +1,12 @@
+<at-top-bar [notificationsPage]="true" [displayNotifications]="true">
+
+    <div class="filter" (click)="onFilterNotifications($event)">
+        <i class="fa-solid fa-filter icon"></i>
+    </div>
+
+</at-top-bar>
+
+<ion-content>
+    <at-notifications [mobile]="mobile" (openNotification)="onOpenNotification($event)">
+    </at-notifications>
+</ion-content>

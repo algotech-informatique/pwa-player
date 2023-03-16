@@ -1,0 +1,29 @@
+<div class="custom-apps" *ngIf="settingsDataService.apps?.length > 0">
+    <ion-menu-toggle auto-hide="false" *ngFor="let p of (settingsDataService.apps | buildApps: settingsDataService.groups)">
+        <div class="item" (click)="openRouterLink(p.url)">
+            <i *ngIf="p.icon" [class]="p.icon + ' icon'"></i>
+            <div class="text" [ngClass]="{'selected': router.url === p.url}">
+                {{ p.title | tlang }}
+            </div>
+        </div> 
+    </ion-menu-toggle>
+</div>
+<div class="actions">
+    <ion-menu-toggle auto-hide="false">
+        <div class="item" (click)="openRouterLink('/notifications')">
+            <i  id="notification-button" class="fa-solid fa-bell icon" ></i>
+            <div class="text" [ngClass]="{'selected': router.url === '/notifications'}">
+                {{ 'NOTIFICATIONS.TITLE' | translate }}
+            </div>
+            <div class="notifications-badge" *ngIf="notificationsService.unread > 0">
+                {{notificationsService.unreadMessage}}
+            </div>
+        </div> 
+    </ion-menu-toggle>
+    <div class="item" (click)="logout()">
+        <i class="fa-solid fa-sign-out-alt icon"></i>
+        <div class="text">
+            {{ 'PROFILE-SELECTOR.TAB.LOGOUT' | translate }}
+        </div>
+    </div> 
+</div>
