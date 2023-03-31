@@ -1,11 +1,11 @@
 import { NotificationsPushService } from '../shared/services/notifications-push/notifications-push.service';
 import { FilterNotificationsComponent } from './filter-notifications/filter-notifications.component';
 import { PopoverController } from '@ionic/angular';
-import { DataService, NotificationsService } from '@algotech/angular';
+import { DataService, NotificationsService } from '@algotech-ce/angular';
 import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import * as _ from 'lodash';
-import { WorkflowLaunchService } from '@algotech/business';
-import { NotificationDto } from '@algotech/core';
+import { WorkflowLaunchService } from '@algotech-ce/business';
+import { NotificationDto } from '@algotech-ce/core';
 import { from } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { NotificationsComponent } from '../shared/components/notifications/notifications.component';

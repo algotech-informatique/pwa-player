@@ -1,8 +1,8 @@
 import { Component, ViewChild, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import * as _ from 'lodash';
-import { NotificationsService, AuthService, DataService } from '@algotech/angular';
+import { NotificationsService, AuthService, DataService } from '@algotech-ce/angular';
 import { NotificationsListComponent } from './notifications-list/notifications-list.component';
-import { NotificationDto } from '@algotech/core';
+import { NotificationDto } from '@algotech-ce/core';
 
 @Component({
     selector: 'at-notifications',

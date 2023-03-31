@@ -4,14 +4,14 @@ import { Platform } from '@ionic/angular';
 import {
     AuthService, SettingsDataService, LoaderService,
     NetworkService, I18nService, DataService, NotificationsService
-} from '@algotech/angular';
+} from '@algotech-ce/angular';
 import {
     WorkflowSubjectService,
     WorkflowSyncService,
     ToastService
-} from '@algotech/business';
+} from '@algotech-ce/business';
 import { HttpClient } from '@angular/common/http';
-import { WorkflowInstanceDto } from '@algotech/core';
+import { WorkflowInstanceDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { NotificationsPushService } from './shared/services';
 import moment from 'moment';

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, OnChanges } from '@angular/core';
-import { NotificationDto } from '@algotech/core';
-import { AuthService } from '@algotech/angular';
+import { NotificationDto } from '@algotech-ce/core';
+import { AuthService } from '@algotech-ce/angular';
 
 @Component({
     selector: 'at-notifications-list',

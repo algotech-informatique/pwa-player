@@ -1,4 +1,4 @@
-import { AuthService, DataService, SettingsDataService } from '@algotech/angular';
+import { AuthService, DataService, SettingsDataService } from '@algotech-ce/angular';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PwaService } from '../shared/services';

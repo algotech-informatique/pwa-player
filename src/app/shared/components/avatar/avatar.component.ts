@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { WS_USERS_COLORS } from '@algotech/angular';
-import { WsUserDto } from '@algotech/core';
+import { WS_USERS_COLORS } from '@algotech-ce/angular';
+import { WsUserDto } from '@algotech-ce/core';
 
 const COLOR_CURRENT_USER = '#EC407A';
 const COLOR_DEFAULT = '#000000';

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
-import { WsUserDto } from '@algotech/core';
+import { WsUserDto } from '@algotech-ce/core';
 
 @Component({
     selector: 'at-avatar-selector',

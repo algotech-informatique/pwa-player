@@ -1,9 +1,9 @@
-import { NotificationsService, AuthService, UsersService, NetworkService } from '@algotech/angular';
+import { NotificationsService, AuthService, UsersService, NetworkService } from '@algotech-ce/angular';
 import { Injectable } from '@angular/core';
 import { AngularFireMessaging } from '@angular/fire/compat/messaging';
 import { Observable, of } from 'rxjs';
 import { mergeMap, tap } from 'rxjs/operators';
-import { NotificationDto } from '@algotech/core';
+import { NotificationDto } from '@algotech-ce/core';
 
 @Injectable()
 export class NotificationsPushService {

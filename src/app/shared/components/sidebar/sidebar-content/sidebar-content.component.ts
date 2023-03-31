@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService, NotificationsService, SettingsDataService } from '@algotech/angular';
+import { AuthService, NotificationsService, SettingsDataService } from '@algotech-ce/angular';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { catchError, finalize, mergeMap, tap } from 'rxjs/operators';

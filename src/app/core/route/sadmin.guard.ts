@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
-import { AuthService } from '@algotech/angular';
+import { AuthService } from '@algotech-ce/angular';
 
 @Injectable()
 export class SAdminGuard implements CanActivate {

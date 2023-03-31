@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { WsUserDto } from '@algotech/core';
-import { AuthService, NetworkService } from '@algotech/angular';
+import { WsUserDto } from '@algotech-ce/core';
+import { AuthService, NetworkService } from '@algotech-ce/angular';
 
 @Component({
     selector: 'app-sidebar-header',

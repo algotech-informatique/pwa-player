@@ -1,4 +1,4 @@
-import { DataService } from '@algotech/angular';
+import { DataService } from '@algotech-ce/angular';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { PwaService } from '../../shared/services';

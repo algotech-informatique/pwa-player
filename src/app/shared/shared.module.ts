@@ -6,8 +6,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UsersService, PipesModule, DirectivesModule, DocumentsService
-} from '@algotech/angular';
-import { ToastService, WorkflowSyncModule } from '@algotech/business';
+} from '@algotech-ce/angular';
+import { ToastService, WorkflowSyncModule } from '@algotech-ce/business';
 import { PipesModule as PlayerPipesModules } from './pipes/pipes.module';
 import { MessageService, NotificationsPushService,
     PwaService,

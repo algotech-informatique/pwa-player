@@ -1,7 +1,7 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { style, animate, transition, trigger } from '@angular/animations';
-import { Application } from '@algotech/angular';
+import { Application } from '@algotech-ce/angular';
 import * as _ from 'lodash';
 
 @Component({

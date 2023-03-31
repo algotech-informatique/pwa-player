@@ -2,7 +2,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { style, animate, transition, trigger } from '@angular/animations';
 import * as _ from 'lodash';
-import { WsUserDto } from '@algotech/core';
+import { WsUserDto } from '@algotech-ce/core';
 
 @Component({
     selector: 'at-profile-selector',

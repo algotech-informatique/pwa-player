@@ -5,10 +5,10 @@ import {
     DataService,
     NotificationsService,
     NetworkService,
-} from '@algotech/angular';
-import { WsUserDto, NotificationDto, ApplicationModelDto, GroupDto } from '@algotech/core';
+} from '@algotech-ce/angular';
+import { WsUserDto, NotificationDto, ApplicationModelDto, GroupDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
-import { SysUtilsService, WorkflowLaunchService } from '@algotech/business';
+import { SysUtilsService, WorkflowLaunchService } from '@algotech-ce/business';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
 

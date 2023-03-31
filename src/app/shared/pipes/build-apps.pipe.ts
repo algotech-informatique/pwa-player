@@ -1,5 +1,5 @@
-import { AuthService } from '@algotech/angular';
-import { ApplicationModelDto, GroupDto } from '@algotech/core';
+import { AuthService } from '@algotech-ce/angular';
+import { ApplicationModelDto, GroupDto } from '@algotech-ce/core';
 import { Pipe, PipeTransform } from '@angular/core';
 import * as _ from 'lodash';
 

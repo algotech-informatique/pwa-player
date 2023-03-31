@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
-import { WsUserDto, NotificationDto } from '@algotech/core';
-import { Application, AuthService, DataService, NotificationsService, SocketManager } from '@algotech/angular';
+import { WsUserDto, NotificationDto } from '@algotech-ce/core';
+import { Application, AuthService, DataService, NotificationsService, SocketManager } from '@algotech-ce/angular';
 import { ActivatedRoute, Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { MenuController } from '@ionic/angular';

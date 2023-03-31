@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EncodeGuard, SmartLinkComponent, ThemeResolver } from '@algotech/business';
+import { EncodeGuard, SmartLinkComponent, ThemeResolver } from '@algotech-ce/business';
 import { TemplatePage } from './template/template.page';
 import { AppTitleResolver } from './core/route/app-title.resolver';
-import { SignInGuard } from '@algotech/angular';
+import { SignInGuard } from '@algotech-ce/angular';
 import { RedirectGuard } from './core/route/redirect.guard';
 
 const routes: Routes = [

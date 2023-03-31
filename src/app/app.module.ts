@@ -13,12 +13,12 @@ import { from, Observable, of } from 'rxjs';
 import {
     AuthService, AuthModule, EnvService,
     ATAngularModule, I18nService, LoaderService, DataService,
-} from '@algotech/angular';
+} from '@algotech-ce/angular';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from './shared/shared.module';
 import {
     AppPreviewModule, WorkflowContainerModule, ThemeEngloberModule
-} from '@algotech/business';
+} from '@algotech-ce/business';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import * as Sentry from '@sentry/browser';
@@ -30,7 +30,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
 import { KeycloakAngularModule } from 'keycloak-angular';
 import { PwaService } from './shared/services/pwa/pwa.service';
-import { DocxTemplaterModulesService } from '@algotech/business';
+import { DocxTemplaterModulesService } from '@algotech-ce/business';
 import { DocxTemplaterService } from './shared/services/docx-templater/docx-templater.service';
 
 // Initialise l'authentification en phase amont, avant de passer dans les guards
