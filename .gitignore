@@ -16,7 +16,6 @@ $RECYCLE.BIN/
 package-lock.json
 sonar-project.properties
 stack-compose.yml
-gitlab-ci.yml
 .npmrc
 Dockerfile-prod
 

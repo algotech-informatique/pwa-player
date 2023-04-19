@@ -7,12 +7,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import moment from 'moment';
 import { catchError, mergeMap, tap, timeout } from 'rxjs/operators';
-import { from, Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import {
     AuthService, AuthModule, EnvService,
-    ATAngularModule, I18nService, LoaderService, DataService,
+    ATAngularModule, I18nService, LoaderService, DataService, TranslateLangDtoService,
 } from '@algotech-ce/angular';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from './shared/shared.module';
@@ -30,8 +29,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
 import { KeycloakAngularModule } from 'keycloak-angular';
 import { PwaService } from './shared/services/pwa/pwa.service';
-import { DocxTemplaterModulesService } from '@algotech-ce/business';
-import { DocxTemplaterService } from './shared/services/docx-templater/docx-templater.service';
+import moment from 'moment';
 
 // Initialise l'authentification en phase amont, avant de passer dans les guards
 export const authInitialize = (
@@ -42,21 +40,14 @@ export const authInitialize = (
     translateService: TranslateService,
     pwaService: PwaService,
     appBaseRef: string,
+    translateLangDto: TranslateLangDtoService,
 ) => async () => {
-    env.initialize(environment);
-    const dataService = injector.get(DataService); // create instance
-
     i18nService.init(environment.defaultLanguage, environment.supportedLanguages);
-    moment.locale(i18nService.language);
-
-    /* if (environment.production) {
-        Sentry.init({
-            dsn: 'https://4954d20371a243c9b3a54d5c2a41e4b2@sentry.myalgotech.io/12',
-        });
-    } */
+    i18nService.language = window.navigator.language;
 
     return await new Promise((resolve) => {
         new Observable((observer) => {
+            env.initialize(environment);
             // app installed ?
             window.addEventListener('beforeinstallprompt', (event) => {
                 pwaService.appInstalled = false;
@@ -78,8 +69,17 @@ export const authInitialize = (
         }).pipe(
             timeout(3000),
             catchError((err) => of(null)),
-            mergeMap(() =>
-                authService.initialize('pwa-player', window.location.origin + appBaseRef, environment.KC_URL, dataService.mobile)),
+            mergeMap(() => {
+                const dataService = injector.get(DataService);
+                return authService.initialize('pwa-player', window.location.origin + appBaseRef, environment.KC_URL, dataService.mobile);
+            }),
+            mergeMap(() => translateService.use(i18nService.language)
+            ),
+            mergeMap(() => {
+                moment.locale(translateService.currentLang);
+                translateLangDto.lang = translateService.currentLang;
+                return translateService.reloadLang(translateService.currentLang);
+            }),
             mergeMap(() => {
                 if (authService.isAuthenticated) {
                     Sentry.configureScope((scope) => {
@@ -133,17 +133,13 @@ export const authInitialize = (
         {
             provide: APP_INITIALIZER,
             useFactory: authInitialize,
-            deps: [EnvService, AuthService, Injector, I18nService, TranslateService, PwaService, APP_BASE_HREF],
+            deps: [EnvService, AuthService, Injector, I18nService, TranslateService, PwaService, APP_BASE_HREF, TranslateLangDtoService],
             multi: true
         },
         {
             provide: APP_BASE_HREF,
             useFactory: (s: PlatformLocation) => s.getBaseHrefFromDOM(),
             deps: [PlatformLocation]
-        },
-        {
-            provide: DocxTemplaterModulesService,
-            useExisting: DocxTemplaterService,
         },
         {
             provide: RouteReuseStrategy,

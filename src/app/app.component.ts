@@ -6,12 +6,10 @@ import {
     NetworkService, I18nService, DataService, NotificationsService
 } from '@algotech-ce/angular';
 import {
-    WorkflowSubjectService,
     WorkflowSyncService,
     ToastService
 } from '@algotech-ce/business';
 import { HttpClient } from '@angular/common/http';
-import { WorkflowInstanceDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { NotificationsPushService } from './shared/services';
 import moment from 'moment';
@@ -35,7 +33,6 @@ export class AppComponent implements OnInit {
         public settingsDataService: SettingsDataService,
         private platform: Platform,
         private network: NetworkService,
-        private workflowSubjectService: WorkflowSubjectService,
         protected http: HttpClient,
         private i18nService: I18nService,
         private loader: LoaderService,
@@ -55,7 +52,7 @@ export class AppComponent implements OnInit {
             return of(null);
         }
         return (!updateToken ? of({}) : this.authService.updateToken()).pipe(
-            mergeMap(() => this.authService.isAuthenticated ? this.workflowSyncService.getInstances() : of([])),
+           mergeMap(() => this.authService.isAuthenticated ? this.workflowSyncService.getInstances() : of([])),
             tap((instances) => {
                 if (instances.filter((wfi) => wfi.state !== 'running').length === 0) {
                     return;

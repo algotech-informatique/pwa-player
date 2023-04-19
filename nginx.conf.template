@@ -1,9 +1,6 @@
 server {
     listen 8080;
     root /usr/share/nginx/html;
-    location /player/ {
-        rewrite ^/player/(.*)$ /$1;
-    }
     location / {
         index  index.html index.htm;
         try_files $uri $uri/ /index.html;
