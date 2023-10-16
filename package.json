@@ -17,9 +17,9 @@
     },
     "private": true,
     "dependencies": {
-        "@algotech-ce/angular": "2.0.0",
-        "@algotech-ce/business": "2.0.0",
-        "@algotech-ce/core": "2.0.0",
+        "@algotech-ce/angular": "3.1.0",
+        "@algotech-ce/business": "3.1.3",
+        "@algotech-ce/core": "3.1.0",
         "@angular/animations": "15.1.1",
         "@angular/cdk": "15.1.1",
         "@angular/common": "15.1.2",
@@ -37,6 +37,7 @@
         "@capacitor/share": "4.1.0",
         "@capacitor/splash-screen": "4.1.3",
         "@capacitor/status-bar": "4.1.1",
+        "@grpc/proto-loader": "0.7.9",
         "@ionic-native/status-bar": "5.36.0",
         "@ionic/angular": "6.5.0",
         "@ionic/pwa-elements": "3.1.1",
@@ -58,13 +59,22 @@
         "moment": "2.29.4",
         "ngx-avatar": "4.1.0",
         "ngx-responsive": "9.0.3",
+        "protobufjs": "^7.2.4",
         "rxfire": "6.0.3",
         "rxjs": "7.8.0",
+        "semver": "^7.5.2",
+        "tough-cookie": "^4.1.3",
         "tslib": "2.5.0",
         "zone.js": "0.12.0"
     },
+    "overrides": {
+        "@grpc/proto-loader": "$@grpc/proto-loader",
+        "protobufjs": "$protobufjs",
+        "tough-cookie": "$tough-cookie",
+        "semver": "$semver"
+    },
     "devDependencies": {
-        "@angular-devkit/build-angular": "15.1.2",
+        "@angular-devkit/build-angular": "15.2.10",
         "@angular-eslint/builder": "15.2.0",
         "@angular-eslint/eslint-plugin": "15.2.0",
         "@angular-eslint/eslint-plugin-template": "15.2.0",
@@ -73,7 +83,6 @@
         "@angular/compiler": "15.1.2",
         "@angular/compiler-cli": "15.1.2",
         "@angular/language-service": "15.1.2",
-        "@capacitor/cli": "4.6.2",
         "@ionic/angular-toolkit": "7.0.0",
         "@types/jasmine": "4.3.1",
         "@types/jasminewd2": "2.0.10",
@@ -94,9 +103,10 @@
         "karma-coverage-istanbul-reporter": "3.0.3",
         "karma-jasmine": "5.1.0",
         "karma-jasmine-html-reporter": "2.0.0",
-        "protractor": "7.0.0",
+        "socket.io-parser": "^4.2.4",
         "ts-node": "10.9.1",
         "typescript": "4.9.4"
     },
     "description": "VISION for Desktop, Mobile and Tablets"
 }
+

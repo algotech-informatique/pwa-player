@@ -4,14 +4,14 @@ ion-menu {
     height: 100%;
     width: 100%;
 
-    app-sidebar-header {
+    #app-sidebar-header {
         display: block;
         background: var(--ALGOTECH-BACKGROUND-HOVER);
         padding: 10px;
         color: #384258
     }
 
-    app-sidebar-content {
+    #app-sidebar-content {
         display: block;
         background: var(--ALGOTECH-BACKGROUND-CONTENT);
         height: calc(100% - 64px);

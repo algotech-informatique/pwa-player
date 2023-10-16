@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
             return of(null);
         }
         return (!updateToken ? of({}) : this.authService.updateToken()).pipe(
-           mergeMap(() => this.authService.isAuthenticated ? this.workflowSyncService.getInstances() : of([])),
+            mergeMap(() => this.authService.isAuthenticated ? this.workflowSyncService.getInstances() : of([])),
             tap((instances) => {
                 if (instances.filter((wfi) => wfi.state !== 'running').length === 0) {
                     return;
@@ -97,23 +97,26 @@ export class AppComponent implements OnInit {
                 return;
             }
 
-            // delay > 1hour : reload
-            const reload = +moment().toDate().getTime() > this.lastUpdate + 3600000;
-            if (reload) {
-                this.lastUpdate = +moment().toDate().getTime();
-                this.update();
-            }
+            const updateToken$ = this.dataService.mobile ? this.authService.updateToken() : of(null);
+            updateToken$.subscribe(() => {
+                // delay > 1hour : reload
+                const reload = +moment().toDate().getTime() > this.lastUpdate + 3600000;
+                if (reload) {
+                    this.lastUpdate = +moment().toDate().getTime();
+                    this.update();
+                }
 
-            if (!this.authService.isAuthenticated) {
-                return;
-            }
+                if (!this.authService.isAuthenticated) {
+                    return;
+                }
 
-            if (this.dataService.mobile && !this.network.offline) {
-                this.notificationsService.initialize('mobile');
-            }
-            this.synchronize().pipe(
-                mergeMap(() => reload ? this.loader.Initialize() : of(null))
-            ).subscribe();
+                if (this.dataService.mobile && !this.network.offline) {
+                    this.notificationsService.initialize('mobile');
+                }
+                this.synchronize(false).pipe(
+                    mergeMap(() => reload ? this.loader.Initialize() : of(null))
+                ).subscribe();
+            });
         });
 
         this.platform.ready().then(() => {

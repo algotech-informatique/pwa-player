@@ -40,7 +40,9 @@ export class NotificationsListComponent implements OnInit, OnChanges {
 
     ngOnChanges(changes: SimpleChanges) {
         if (changes.notifications && this.mobile) {
-            this.event?.target?.complete();
+            if (this.event?.target?.complete) {
+                this.event.target.complete();
+            }
         }
     }
 
