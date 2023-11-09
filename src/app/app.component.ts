@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 
 import {
@@ -42,6 +42,7 @@ export class AppComponent implements OnInit {
         private updates: SwUpdate,
         private toastService: ToastService,
         private translate: TranslateService,
+        private zone: NgZone,
     ) {
         this.notificationsPushService.getMessages();
         this.initializeApp();
@@ -120,12 +121,14 @@ export class AppComponent implements OnInit {
         });
 
         this.platform.ready().then(() => {
-            this.notificationsPushService.getMessages().subscribe();
-            if (!this.network.offline && this.authService.isAuthenticated) {
-                this.notificationsService.initialize(this.dataService.mobile ? 'mobile' : 'web');
-            }
-            this.synchronize(false).subscribe();
-            moment.locale(this.i18nService.language);
+            this.zone.runOutsideAngular(() => {
+                this.notificationsPushService.getMessages().subscribe();
+                if (!this.network.offline && this.authService.isAuthenticated) {
+                    this.notificationsService.initialize(this.dataService.mobile ? 'mobile' : 'web');
+                }
+                this.synchronize(false).subscribe();
+                moment.locale(this.i18nService.language);
+            });
         });
     }
 
